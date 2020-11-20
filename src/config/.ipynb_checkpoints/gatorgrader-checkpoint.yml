@@ -1,0 +1,19 @@
+---
+name: cmpsc-100-course-project-code
+break: true
+indent: 4
+---
+
+CMPSC_100_Final_Project.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "def " --count 1
+    MatchFileFragment --fragment "import " --count 1
+    CountSingleLineComments --language Python --count 15
+    MatchFileFragment --fragment "open(" --count 1
+    MatchFileFragment --fragment "=" --count 1
+    MatchFileFragment --fragment "." --count 1
+    MatchFileRegex --regex "for|while" --count 1
+    MatchFileRegex --regex "\{|\[|\(" --count 1
+
+ExecuteCommand --command "python3 CMPSC_100_Final_Project.py"
